@@ -1,0 +1,11 @@
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: data\epi_dataset\images\train
+val: data\epi_dataset\images\val
+test: data\epi_dataset\images\test
+
+
+# number of classes
+nc: 12
+
+# class names
+names: ["glove", "no_glove", "goggles", "no_goggles", "helmet", "no_helmet", "mask", "no_mask", "shoes", "no_shoes", "suit", "no-suit"]
