@@ -28,6 +28,7 @@ from torchvision.ops import roi_pool, roi_align, ps_roi_pool, ps_roi_align
 
 from utils.general import check_requirements, xyxy2xywh, xywh2xyxy, xywhn2xyxy, xyn2xy, segment2box, segments2boxes, \
     resample_segments, clean_str
+from utils.general_use import return_os_name
 from utils.torch_utils import torch_distributed_zero_first
 
 # Parameters
@@ -388,12 +389,12 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
         # Check cache
         self.label_files = img2label_paths(self.img_files)  # labels
         cache_path = (p if p.is_file() else Path(self.label_files[0]).parent).with_suffix('.cache')  # cached labels
-        # if cache_path.is_file():
-        #     cache, exists = torch.load(cache_path), True  # load
-            #if cache['hash'] != get_hash(self.label_files + self.img_files) or 'version' not in cache:  # changed
+        if cache_path.is_file() and return_os_name() == 'Windows':
+            cache, exists = torch.load(cache_path), True  # load
+            # if cache['hash'] != get_hash(self.label_files + self.img_files) or 'version' not in cache:  # changed
             #    cache, exists = self.cache_labels(cache_path, prefix), False  # re-cache
-        # else:
-        cache, exists = self.cache_labels(cache_path, prefix), False  # cache
+        else:
+            cache, exists = self.cache_labels(cache_path, prefix), False  # cache
 
         # Display cache
         nf, nm, ne, nc, n = cache.pop('results')  # found, missing, empty, corrupted, total
