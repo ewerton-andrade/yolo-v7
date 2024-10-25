@@ -1,0 +1,10 @@
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: /mnt/storage/datasets/yolo/insp_qualidade/4K/abordagem_deteccao/defeito/images/train
+val: /mnt/storage/datasets/yolo/insp_qualidade/4K/abordagem_deteccao/defeito/images/val
+test: /mnt/storage/datasets/yolo/insp_qualidade/4K/abordagem_deteccao/defeito/images/test
+
+# number of classes
+nc: 2
+
+# class names
+names: ["defeito", "ok"]
