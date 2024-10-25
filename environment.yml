@@ -1,0 +1,25 @@
+name: yolo_v7_gpu  # Name of the environment
+channels:
+  - pytorch   # PyTorch official channel
+  - nvidia    # NVIDIA channel for CUDA
+  - conda-forge  # Conda-forge channel for open-source packages
+dependencies:
+  - python
+  - pip
+  - matplotlib
+  - numpy<1.24.0
+  - opencv
+  - Pillow
+  - PyYAML
+  - requests
+  - scipy
+  - pytorch
+  - torchvision
+  - tqdm
+  - protobuf
+  - pandas
+  - seaborn
+  - pytorch-cuda=11.8
+  - tensorboard
+
+#install thop via pip after conda environment is created
