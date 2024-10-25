@@ -16,5 +16,8 @@
 #EPI training for windows
 # python train.py --workers 0 --batch-size 4 --device 0 --data data\epi.yaml --img 640 640 --cfg cfg\training\yolov7-epi.yaml --weights yolov7_training.pt --name yolov7-epi --hyp data\hyp.scratch.custom.yaml --epochs 300
 
+#INSP Quality for windows 
+# python train.py --workers 0 --batch-size 16 --device 0 --data data\\insp_quality.yaml --img 640 640 --cfg cfg\\training\\yolov7-insp_quality.yaml --weights yolov7_training.pt --name yolov7-epi --hyp data\\hyp.scratch.custom.yaml --epochs 300
+
 #Using tensorboard to see perform accuracy graph using Tensorboard
 # tensorboard --logdir runs\train
